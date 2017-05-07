@@ -1,0 +1,5 @@
+#!/bin/bash
+
+bin/console doctrine:mapping:info
+bin/console doctrine:migrations:status
+bin/console doctrine:schema:validate --skip-mapping

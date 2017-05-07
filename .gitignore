@@ -1,0 +1,14 @@
+/etc/local/
+!/etc/local/.gitkeep
+###> symfony/framework-bundle ###
+.env
+/var/
+!/var/cache/.gitkeep
+!/var/logs/.gitkeep
+!/var/sessions/.gitkeep
+/vendor/
+/web/bundles/
+###< symfony/framework-bundle ###
+###> phpunit/phpunit ###
+/phpunit.xml
+###< phpunit/phpunit ###

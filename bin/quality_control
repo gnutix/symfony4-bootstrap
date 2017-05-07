@@ -1,0 +1,38 @@
+#!/bin/bash
+ENV_PATH=".env"
+if [ -f "${ENV_PATH}" ]; then
+    source ${ENV_PATH}
+fi
+
+# Syntax checks
+php -l src/
+bin/console lint:twig templates/
+bin/console lint:xliff translations/
+bin/console lint:yaml etc/
+
+# Coding standard checks
+echo -e "\n\e[33mRunning PHPCS...\e[0m\n"
+vendor/bin/phpcs -p --colors --standard=PSR2 --extensions=php src/
+res=$?
+echo -e ""
+if [ "${res}" -gt 0 ]; then
+    exit 1
+fi
+
+# Configuration checks
+bin/console doctrine:schema:validate --skip-sync
+if [ "${APP_ENV}" == "prod" ]; then
+    bin/console doctrine:ensure-production-settings
+fi
+
+# Automated tests
+echo -e "\n\e[33mRunning PHPUnit...\e[0m\n"
+vendor/bin/phpunit
+res=$?
+echo -e ""
+if [ "${res}" -gt 0 ]; then
+    exit 1
+fi
+
+# Security checks
+bin/console security:check

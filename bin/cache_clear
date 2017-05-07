@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# See http://symfony.com/blog/new-in-symfony-3-3-deprecated-cache-clear-with-warmup
+bin/console cache:clear --no-warmup
+bin/console cache:warmup

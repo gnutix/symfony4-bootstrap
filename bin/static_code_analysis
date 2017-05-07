@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo -e "\n\e[33mGenerate PHPMetrics reports...\e[0m\n"
+vendor/bin/phpmetrics --report-html=var/phpmetrics src
+echo -e ""

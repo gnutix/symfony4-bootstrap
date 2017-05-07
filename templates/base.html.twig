@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title 'MyProject' %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap-theme.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+            <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="header clearfix">
+                <nav>
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="{{ path('home') }}">Home</a></li>
+                        <li><a href="{{ path('sonata_admin_dashboard') }}">Sonata Admin</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            {% block body '' %}
+        </div>
+
+        <footer class="footer">
+            <p>Made with <i class="fa fa-heart heart" aria-hidden="true"></i> by <a href="http://github.com/gnutix">gnutix</a></p>
+        </footer>
+
+        {% block javascripts %}
+            <script src="{{ asset('vendor/jquery/jquery-2.2.4.min.js') }}"></script>
+            <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/main.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,5 @@
+liip_functional_test:
+    cache_sqlite_db: true
+    authentication:
+        username: 'test'
+        password: 'test'

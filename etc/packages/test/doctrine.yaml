@@ -1,0 +1,3 @@
+doctrine:
+    dbal:
+        path: '%kernel.cache_dir%/test.db'
